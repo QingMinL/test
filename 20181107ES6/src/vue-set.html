@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend扩展</title>
+    <script type="text/javascript" src="../resource/vue.js"></script>
+</head>
+<body>
+<h1>vue-set</h1>
+<hr>
+    <div id="app">{{message}}</div>
+</body>
+
+<script>
+    var outData={
+        count:1,
+        goods:'car'
+    };
+    var app=new Vue({
+        el:'#app',
+        data:outData
+    });
+</script>
+</html>

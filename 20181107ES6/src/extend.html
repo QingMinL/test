@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend扩展</title>
+    <script type="text/javascript" src="../resource/vue.js"></script>
+</head>
+<body>
+        <h1>vue.extend扩展构造器</h1>
+        <hr>
+<div id="app"></div>
+<author></author>
+
+</body>
+<script>
+    var authorExtend=Vue.extend({
+        template:"<p><a :href='authorURL' target='_blank'>{{authorName}}</a></p>",
+        data:function(){
+            return{
+                authorName:'QQQingM',
+                authorURL:"http://baidu.com"
+            }
+        }
+    });
+    new authorExtend().$mount('author');    //标签式绑定
+    new authorExtend().$mount('#app');      //div#id绑定
+</script>
+</html>

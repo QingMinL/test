@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch</title>
+    <script type="text/javascript" src="../resource/vue.js"></script>
+</head>
+<body>
+<h1>example</h1>
+<hr>
+<div id="app">
+</div>
+<button onclick="reduce()">reduce</button>
+<button onclick="reduceOnce()">reduceOnce</button>
+
+<button onclick="destory()">销毁</button>
+<button onclick="update()">刷新</button>
+
+<script>
+    var QinM=Vue.extend({
+        template:`<div><p>{{message}}--{{num}}</p>
+    <button @click="add">ADD</button></div>`,
+        data:function(){
+            return {
+                message:'hello',
+                num:1
+            }
+        },
+        methods:{
+            add:function(){
+                this.num++;
+            },
+        },
+        mounted:function(){
+            console.log('mounted 被创建');
+        },
+        destroyed:function(){
+            console.log('mounted 被销毁');
+        },
+    });
+    var vm =new QinM().$mount('#app');
+    function destory (){
+        vm.$destroy();
+    }
+
+        vm.$on('reduce',function(){
+            console.log('执行了reduce()');
+            this.num--;
+        });
+    vm.$once('reduceOnce',function(){
+        console.log('执行了reduceOnce()');
+        this.num--;
+    });
+    function reduce() {
+        vm.$emit('reduce');
+    }
+    function reduceOnce() {
+        vm.$emit('reduceOnce');
+    }
+</script>
+</body>
+</html>

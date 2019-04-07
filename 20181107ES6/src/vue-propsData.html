@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>propsData</title>
+    <script type="text/javascript" src="../resource/vue.js"></script>
+</head>
+<body>
+<h1>vue.propsData</h1>
+<hr>
+<div id="app"></div>
+<header></header>
+</body>
+<script>
+    let header=Vue.extend({
+        template:"<p>{{message}}-{{a}}</p>",
+        data:()=>{
+            return {
+                message:'Hello,I am header!'
+        }
+        },
+        props:['a']
+    });
+    new header({propsData:{a:12}}).$mount('header');
+    let app=new Vue({
+        el:'#app'
+    });
+</script>
+</html>

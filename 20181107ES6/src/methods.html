@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend扩展</title>
+    <script type="text/javascript" src="../resource/vue.js"></script>
+</head>
+<body>
+<h1>vue-set</h1>
+<hr>
+<div id="app">
+    {{num0}}
+    <input type="button" @click="add(1)">
+    <p><btns @click.native="add(2)"></btns></p>
+    <p>
+        <button onclick="app.add(3)">外部按钮add</button></p>
+</div>
+</body>
+
+<script>
+    var btn={
+        template:'<button>组件按钮ADD</button>'
+    };
+    var app=new Vue({
+        el:'#app',
+        data:{
+            num0:1
+        },
+        components:{
+            'btns':btn
+        },
+        methods:{
+            add:function(num){
+                console.log(event);
+                this.num0+=num;
+            }
+        }
+    });
+</script>
+</html>
